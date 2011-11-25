@@ -31,7 +31,6 @@ THE SOFTWARE.*/
 #define MAINTAINER "Raphael Scholer\0"
 #define VERSION "0.1\0"
 
-int main(int argc, char *argv[]);
 void output_help(char name[]);
 void output_version(void);
 
