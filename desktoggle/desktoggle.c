@@ -27,7 +27,7 @@ THE SOFTWARE.*/
 #include <stdlib.h>
 
 #define BUG_EMAIL_ADDRESS "rscholer@gmx.de\0"
-#define NAME "Desk Toggle\0"
+#define PROJECT "DeskToggle\0"
 #define MAINTAINER "Raphael Scholer\0"
 #define VERSION "0.1\0"
 
@@ -159,11 +159,11 @@ void output_help(char name[]) {
 	printf("\nOptions:\n");
 	printf("  --help\t\tshow this help message and exit\n");
 	printf("  --version\t\tshow version information and exit\n");
-	printf("\nPlease report %s bugs to <%s>.\n",NAME ,BUG_EMAIL_ADDRESS);
+	printf("\nPlease report %s bugs to <%s>.\n",PROJECT ,BUG_EMAIL_ADDRESS);
 }
 
 void output_version(void) {
-	printf("%s %s\n", NAME, VERSION);
+	printf("%s %s\n", PROJECT, VERSION);
 	printf("Copyright (C) 2011 %s\n", MAINTAINER);
 	printf("\nPermission is hereby granted, free of charge, to any person ");
 	printf("obtaining a copy\n");
