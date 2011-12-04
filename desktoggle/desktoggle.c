@@ -86,6 +86,13 @@ int main(int argc, char *argv[]) {
 		exit(EXIT_SUCCESS);
 	}
 
+	/* Refer to argv[0] --help when an unknown option is found.
+	 * getopt handles the listing of the unknown options. */
+	if (option_index < argc) {
+		printf("\nFor more information see \"%s --help\"\n", argv[0]);
+		exit(EXIT_FAILURE);
+	}
+
 	/**************************************************************************
 	 *  Main program
 	 *************************************************************************/
