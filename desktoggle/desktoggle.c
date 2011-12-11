@@ -65,8 +65,6 @@ int main(int argc, char *argv[]) {
 	 * Parse arguments
 	 *************************************************************************/
 	while (1) {
-		option_index = 0;
-
 		current_option = getopt_long(argc, argv, "", long_options,
 										&option_index);
 
@@ -88,7 +86,7 @@ int main(int argc, char *argv[]) {
 
 	/* Refer to argv[0] --help when an unknown option is found.
 	 * getopt handles the listing of the unknown options. */
-	if (option_index < argc) {
+	if (optind < argc) {
 		printf("\nFor more information see \"%s --help\"\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
