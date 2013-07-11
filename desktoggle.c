@@ -30,7 +30,7 @@ THE SOFTWARE.*/
 #define MAINTAINER "Raphael Scholer\0"
 #define PROJECT "DeskToggle\0"
 #define SHORT_DESC "Hide all windows and show the desktop.\0"
-#define VERSION "1.1\0"
+#define VERSION "1.2\0"
 
 void output_help(char name[]);
 void output_version(void);
