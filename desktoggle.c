@@ -1,4 +1,4 @@
-/* Copyright (C) 2012 by Raphael Scholer
+/* Copyright (C) 2013 by Raphael Scholer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -162,7 +162,7 @@ void output_help(char name[]) {
 
 void output_version(void) {
 	printf("%s %s\n", PROJECT, VERSION);
-	printf("Copyright (C) 2012 %s\n", MAINTAINER);
+	printf("Copyright (C) 2013 %s\n", MAINTAINER);
 	printf("\nPermission is hereby granted, free of charge, to any person ");
 	printf("obtaining a copy\n");
 	printf("of this software and associated documentation files ");
