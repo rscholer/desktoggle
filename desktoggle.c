@@ -22,7 +22,7 @@ THE SOFTWARE.*/
 #include <X11/Xlib.h>
 
 #include <getopt.h>
-
+#include <libgen.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -153,7 +153,7 @@ int main(int argc, char *argv[]) {
 }
 
 void output_help(char name[]) {
-	printf("Usage: %s [OPTION]...\n", name);
+	printf("Usage: %s [OPTION]...\n", basename(name));
 	printf("\nOptions:\n");
 	printf("  --help\t\tshow this help message and exit\n");
 	printf("  --version\t\tshow version information and exit\n");
