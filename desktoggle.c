@@ -27,8 +27,9 @@ THE SOFTWARE.*/
 #include <stdlib.h>
 
 #define BUG_TRACKER "https://github.com/rscholer/desktoggle/issues\0"
-#define PROJECT "DeskToggle\0"
 #define MAINTAINER "Raphael Scholer\0"
+#define PROJECT "DeskToggle\0"
+#define SHORT_DESC "Hide all windows and show the desktop.\0"
 #define VERSION "1.1\0"
 
 void output_help(char name[]);
@@ -56,7 +57,7 @@ int main(int argc, char *argv[]) {
 	int version_flag = False;
 
 	const struct option long_options[] = {
-		{"help",	no_argument,	&help_flag,		True},
+		{"help",	0,				&help_flag,		True},
 		{"version",	no_argument,	&version_flag,	True},
 		{0,			0,				0,				0}
 	};
@@ -154,6 +155,7 @@ int main(int argc, char *argv[]) {
 
 void output_help(char name[]) {
 	printf("Usage: %s [OPTION]...\n", basename(name));
+	printf("\n%s\n", SHORT_DESC);
 	printf("\nOptions:\n");
 	printf("  --help\t\tshow this help message and exit\n");
 	printf("  --version\t\tshow version information and exit\n");
