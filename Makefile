@@ -1,4 +1,5 @@
 CFLAGS ?= -Wall -O2
+LDFLAGS ?= -Wall -O2
 
 LDLIBS = -lX11
 PREFIX = /usr/local
@@ -11,7 +12,7 @@ distclean: clean
 
 
 desktoggle: $(OBJS)
-	$(CC) $(LDLIBS) -o $@ $^ $(CFLAGS)
+	$(CC) $(LDLIBS) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS)
