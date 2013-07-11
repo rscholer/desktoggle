@@ -9,7 +9,7 @@ OBJS = desktoggle.o
 
 all: desktoggle
 distclean: clean
-
+rebuild: clean all
 
 desktoggle: $(OBJS)
 	$(CC) $(LDLIBS) -o $@ $^ $(LDFLAGS)
