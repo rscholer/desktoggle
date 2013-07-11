@@ -26,7 +26,7 @@ THE SOFTWARE.*/
 #include <stdio.h>
 #include <stdlib.h>
 
-#define BUG_EMAIL_ADDRESS "rscholer@gmx.de\0"
+#define BUG_TRACKER "https://github.com/rscholer/desktoggle/issues\0"
 #define PROJECT "DeskToggle\0"
 #define MAINTAINER "Raphael Scholer\0"
 #define VERSION "1.0\0"
@@ -157,7 +157,7 @@ void output_help(char name[]) {
 	printf("\nOptions:\n");
 	printf("  --help\t\tshow this help message and exit\n");
 	printf("  --version\t\tshow version information and exit\n");
-	printf("\nPlease report %s bugs to <%s>.\n",PROJECT ,BUG_EMAIL_ADDRESS);
+	printf("\nPlease report %s bugs at <%s>.\n",PROJECT ,BUG_TRACKER);
 }
 
 void output_version(void) {
