@@ -29,7 +29,7 @@ THE SOFTWARE.*/
 #define BUG_EMAIL_ADDRESS "rscholer@gmx.de\0"
 #define PROJECT "DeskToggle\0"
 #define MAINTAINER "Raphael Scholer\0"
-#define VERSION "0.1\0"
+#define VERSION "1.0\0"
 
 void output_help(char name[]);
 void output_version(void);
