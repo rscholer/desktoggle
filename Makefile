@@ -1,9 +1,7 @@
-CC = gcc
-CFLAGS = -Wall -O2
+CFLAGS ?= -Wall -O2
+
 LDLIBS = -lX11
-
 PREFIX = /usr/local
-
 OBJS = desktoggle.o
 
 .PHONY: all clean distclean install rebuild
