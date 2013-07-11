@@ -29,7 +29,7 @@ THE SOFTWARE.*/
 #define BUG_TRACKER "https://github.com/rscholer/desktoggle/issues\0"
 #define PROJECT "DeskToggle\0"
 #define MAINTAINER "Raphael Scholer\0"
-#define VERSION "1.0\0"
+#define VERSION "1.1\0"
 
 void output_help(char name[]);
 void output_version(void);
