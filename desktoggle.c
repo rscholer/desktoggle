@@ -52,13 +52,11 @@ int main(int argc, char *argv[]) {
 	/* Variables for parsing arguments */
 	int current_option = 0;
 	int option_index = 0;
-	int help_flag = False;
-	int version_flag = False;
 
 	const struct option long_options[] = {
-		{"help",	0,				&help_flag,		True},
-		{"version",	no_argument,	&version_flag,	True},
-		{0,			0,				0,				0}
+		{"help",	no_argument,	0,		'h'},
+		{"version",	no_argument,	0,		'v'},
+		{0,			0,				0,		0}
 	};
 
 	/**************************************************************************
@@ -71,12 +69,24 @@ int main(int argc, char *argv[]) {
 		if (current_option == -1) {
 			break;
 		}
-		else if (current_option == '?') {
-			printf("Try \'%s --help\' for more information.\n", argv[0]);
-			exit(EXIT_FAILURE);
+		switch (current_option) {
+			case 'h':
+				output_help(argv[0]);
+				exit(EXIT_SUCCESS);
+				break;
+			case 'v':
+				output_version();
+				exit(EXIT_SUCCESS);
+				break;
+			case '?':
+				printf("Try \'%s --help\' for more information.\n", argv[0]);
+				exit(EXIT_FAILURE);
+				break;
+			default:
+				abort();
+				break;
 		}
 	}
-
 
 	/* List all unknown non-option arguments and exit*/
 	if (optind < argc) {
@@ -91,17 +101,6 @@ int main(int argc, char *argv[]) {
 		}
 		printf("Try \'%s --help\' for more information.\n", argv[0]);
 		exit(EXIT_FAILURE);
-	}
-
-	/* Helpful output */
-	/* help_flag takes precendence over version_flag */
-	if ( help_flag == True) {
-		output_help(argv[0]);
-		exit(EXIT_SUCCESS);
-	}
-	else if ( version_flag == True) {
-		output_version();
-		exit(EXIT_SUCCESS);
 	}
 
 	/**************************************************************************
