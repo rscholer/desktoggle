@@ -35,6 +35,7 @@ THE SOFTWARE.*/
 const char *PROGRAM_NAME = NULL;
 
 void output_help(void);
+void output_try_help(void);
 void output_version(void);
 void set_program_name(const char *name);
 
@@ -84,7 +85,7 @@ int main(int argc, char *argv[]) {
 				exit(EXIT_SUCCESS);
 				break;
 			case '?':
-				printf("Try \'%s --help\' for more information.\n", argv[0]);
+				output_try_help();
 				exit(EXIT_FAILURE);
 				break;
 			default:
@@ -104,7 +105,7 @@ int main(int argc, char *argv[]) {
 		while (optind < argc) {
 			printf("%s\n", argv[optind++]);
 		}
-		printf("Try \'%s --help\' for more information.\n", argv[0]);
+		output_try_help();
 		exit(EXIT_FAILURE);
 	}
 
@@ -176,6 +177,10 @@ void output_help(void) {
 	printf("      --version  output version information and exit\n");
 	printf("\nReport %s bugs at <%s>\n", PACKAGE_NAME, PACKAGE_BUGREPORT);
 	printf("%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
+}
+
+void output_try_help(void) {
+		fprintf(stderr, "Try \'%s --help\' for more information.\n", PROGRAM_NAME);
 }
 
 void output_version(void) {
