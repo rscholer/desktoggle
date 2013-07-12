@@ -14,11 +14,10 @@ bindir = $(exec_prefix)/bin
 datarootdir = $(prefix)/share
 docdir = $(datarootdir)/doc/desktoggle
 
-.PHONY: all clean distclean install rebuild
+.PHONY: all clean distclean install
 
 all: desktoggle
 distclean: clean
-rebuild: clean all
 
 desktoggle: $(OBJS)
 	$(CC) $(LDLIBS) -o $@ $^ $(LDFLAGS)
