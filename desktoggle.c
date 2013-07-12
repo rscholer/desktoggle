@@ -25,10 +25,10 @@ THE SOFTWARE.*/
 #include <stdio.h>
 #include <stdlib.h>
 
-#define BUG_TRACKER "https://github.com/rscholer/desktoggle/issues"
-#define MAINTAINER "Raphael Scholer"
-#define PROJECT "desktoggle"
-#define SHORT_DESC "Hide all windows and show the desktop."
+#define AUTHOR "Raphael Scholer"
+#define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
+#define PACKAGE_NAME "desktoggle"
+#define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
 #define VERSION "1.2"
 
 void output_help(char name[]);
@@ -166,16 +166,16 @@ int main(int argc, char *argv[]) {
 
 void output_help(char name[]) {
 	printf("Usage: %s [OPTION]...\n", name);
-	printf("\n%s\n", SHORT_DESC);
-	printf("\nOptions:\n");
-	printf("  --help\t\tshow this help message and exit\n");
-	printf("  --version\t\tshow version information and exit\n");
-	printf("\nPlease report %s bugs at <%s>.\n",PROJECT ,BUG_TRACKER);
+	printf("Hide all windows and show the desktop.\n\n");
+	printf("      --help     display this help and exit\n");
+	printf("      --version  output version information and exit\n");
+	printf("\nReport %s bugs at <%s>\n", PACKAGE_NAME, PACKAGE_BUGREPORT);
+	printf("%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
 }
 
 void output_version(void) {
-	printf("%s %s\n", PROJECT, VERSION);
-	printf("Copyright (C) 2013 %s\n", MAINTAINER);
+	printf("%s %s\n", PACKAGE_NAME, VERSION);
+	printf("Copyright (C) 2013 %s\n", AUTHOR);
 	printf("\nPermission is hereby granted, free of charge, to any person ");
 	printf("obtaining a copy\n");
 	printf("of this software and associated documentation files ");
@@ -203,4 +203,5 @@ void output_version(void) {
 	printf("OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR ");
 	printf("OTHER DEALINGS IN\n");
 	printf("THE SOFTWARE.\n");
+	printf("\nWritten by %s.\n", AUTHOR);
 }
