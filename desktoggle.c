@@ -24,6 +24,7 @@ THE SOFTWARE.*/
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define AUTHOR "Raphael Scholer"
 #define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
@@ -31,10 +32,14 @@ THE SOFTWARE.*/
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
 #define VERSION "1.2"
 
-void output_help(char name[]);
+const char *PROGRAM_NAME = NULL;
+
+void output_help(void);
 void output_version(void);
+void set_program_name(const char *name);
 
 int main(int argc, char *argv[]) {
+	set_program_name(argv[0]);
 	/**************************************************************************
 	 * Declare and Initialize Variables
 	 *************************************************************************/
@@ -71,7 +76,7 @@ int main(int argc, char *argv[]) {
 		}
 		switch (current_option) {
 			case 'h':
-				output_help(argv[0]);
+				output_help();
 				exit(EXIT_SUCCESS);
 				break;
 			case 'v':
@@ -164,8 +169,8 @@ int main(int argc, char *argv[]) {
 	exit(EXIT_SUCCESS);
 }
 
-void output_help(char name[]) {
-	printf("Usage: %s [OPTION]...\n", name);
+void output_help(void) {
+	printf("Usage: %s [OPTION]...\n", PROGRAM_NAME);
 	printf("Hide all windows and show the desktop.\n\n");
 	printf("      --help     display this help and exit\n");
 	printf("      --version  output version information and exit\n");
@@ -204,4 +209,8 @@ void output_version(void) {
 	printf("OTHER DEALINGS IN\n");
 	printf("THE SOFTWARE.\n");
 	printf("\nWritten by %s.\n", AUTHOR);
+}
+
+void set_program_name(const char *name) {
+	PROGRAM_NAME = strdup(name);
 }
