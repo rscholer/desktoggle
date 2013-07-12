@@ -72,6 +72,26 @@ int main(int argc, char *argv[]) {
 		if (current_option == -1) {
 			break;
 		}
+		else if (current_option == '?') {
+			printf("Try \'%s --help\' for more information.\n", argv[0]);
+			exit(EXIT_FAILURE);
+		}
+	}
+
+
+	/* List all unknown non-option arguments and exit*/
+	if (optind < argc) {
+		if (argc - optind == 1) {
+			printf("Unknown non-option argument:\n");
+		}
+		else {
+			printf("Unknown non-option arguments:\n");
+		}
+		while (optind < argc) {
+			printf("%s\n", argv[optind++]);
+		}
+		printf("Try \'%s --help\' for more information.\n", argv[0]);
+		exit(EXIT_FAILURE);
 	}
 
 	/* Helpful output */
@@ -83,13 +103,6 @@ int main(int argc, char *argv[]) {
 	else if ( version_flag == True) {
 		output_version();
 		exit(EXIT_SUCCESS);
-	}
-
-	/* Refer to argv[0] --help when an unknown option is found.
-	 * getopt handles the listing of the unknown options. */
-	if (optind < argc) {
-		printf("\nFor more information see \"%s --help\"\n", argv[0]);
-		exit(EXIT_FAILURE);
 	}
 
 	/**************************************************************************
