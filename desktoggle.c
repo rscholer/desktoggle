@@ -27,7 +27,7 @@ THE SOFTWARE.*/
 
 #define BUG_TRACKER "https://github.com/rscholer/desktoggle/issues\0"
 #define MAINTAINER "Raphael Scholer\0"
-#define PROJECT "DeskToggle\0"
+#define PROJECT "desktoggle\0"
 #define SHORT_DESC "Hide all windows and show the desktop.\0"
 #define VERSION "1.2\0"
 
