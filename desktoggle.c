@@ -25,11 +25,11 @@ THE SOFTWARE.*/
 #include <stdio.h>
 #include <stdlib.h>
 
-#define BUG_TRACKER "https://github.com/rscholer/desktoggle/issues\0"
-#define MAINTAINER "Raphael Scholer\0"
-#define PROJECT "desktoggle\0"
-#define SHORT_DESC "Hide all windows and show the desktop.\0"
-#define VERSION "1.2\0"
+#define BUG_TRACKER "https://github.com/rscholer/desktoggle/issues"
+#define MAINTAINER "Raphael Scholer"
+#define PROJECT "desktoggle"
+#define SHORT_DESC "Hide all windows and show the desktop."
+#define VERSION "1.2"
 
 void output_help(char name[]);
 void output_version(void);
