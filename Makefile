@@ -1,9 +1,15 @@
 CFLAGS ?= -Wall -O2
 LDFLAGS ?= -Wall -O2
 
+INSTALL = install -D
+INSTALL_PROGRAM = $(INSTALL) -m 755
+
 LDLIBS = -lX11
-PREFIX = /usr/local
 OBJS = desktoggle.o
+
+prefix = /usr/local
+exec_prefix = $(prefix)
+bindir = $(exec_prefix)/bin
 
 .PHONY: all clean distclean install rebuild
 
@@ -22,4 +28,4 @@ clean:
 	$(RM) $(OBJS)
 
 install:
-	install -D -m 755 desktoggle $(DESTDIR)/$(PREFIX)/bin/desktoggle
+	$(INSTALL_PROGRAM) desktoggle $(DESTDIR)$(bindir)/desktoggle
