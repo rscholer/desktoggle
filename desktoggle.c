@@ -94,13 +94,13 @@ int main(int argc, char *argv[]) {
 	/* List all unknown non-option arguments and exit*/
 	if (optind < argc) {
 		if (argc - optind == 1) {
-			puts("Unknown non-option argument:");
+			fputs("Unknown non-option argument:\n", stderr);
 		}
 		else {
-			puts("Unknown non-option arguments:");
+			fputs("Unknown non-option arguments:\n", stderr);
 		}
 		while (optind < argc) {
-			printf("%s\n", argv[optind++]);
+			fprintf(stderr, "  %s\n", argv[optind++]);
 		}
 		output_try_help();
 		exit(EXIT_FAILURE);
@@ -187,6 +187,7 @@ void output_version(void) {
 	puts("This is free software: you are free to change and redistribute it.");
 	puts("There is NO WARRANTY, to the extent permitted by law.");
 	printf("\nWritten by %s.\n", AUTHOR);
+	printf("\n\n\n");
 }
 
 void set_program_name(const char *name) {
