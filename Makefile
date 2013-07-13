@@ -16,7 +16,7 @@ bindir = $(exec_prefix)/bin
 datarootdir = $(prefix)/share
 docdir = $(datarootdir)/doc/desktoggle
 mandir = $(datarootdir)/man
-man1dir = $(datarootdir)/man1
+man1dir = $(mandir)/man1
 
 man1ext = .1
 
