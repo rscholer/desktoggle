@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 	/**************************************************************************
 	 * Declare and Initialize Variables
 	 *************************************************************************/
-	Display *d;
+	Display *display;
 	Window root;
 	Atom _NET_SHOWING_DESKTOP;
 	Atom actual_type;
@@ -111,26 +111,26 @@ int main(int argc, char *argv[]) {
 	 *************************************************************************/
 
 	/* Open the default display */
-	if (!(d = XOpenDisplay(NULL))) {
+	if (!(display = XOpenDisplay(NULL))) {
 		fprintf(stderr, "Cannot open display \"%s\".\n", XDisplayName(NULL));
 		exit(EXIT_FAILURE);
 	}
 
 	/* This is the default root window */
-	root = DefaultRootWindow(d);
+	root = DefaultRootWindow(display);
 
 	/* find the Atom for _NET_SHOWING_DESKTOP */
-	_NET_SHOWING_DESKTOP = XInternAtom(d, "_NET_SHOWING_DESKTOP", False);
+	_NET_SHOWING_DESKTOP = XInternAtom(display, "_NET_SHOWING_DESKTOP", False);
 
 	/* Obtain the current state of _NET_SHOWING_DESKTOP  */
-	error = XGetWindowProperty(d, root, _NET_SHOWING_DESKTOP, 0, 1, False,
+	error = XGetWindowProperty(display, root, _NET_SHOWING_DESKTOP, 0, 1, False,
 								XA_CARDINAL, &actual_type, &actual_format,
 								&nitems, &after, &data);
 
 	/* Check for errors */
 	if (error != Success) {
 		fprintf(stderr, "Received error %d!\n", error);
-		XCloseDisplay(d);
+		XCloseDisplay(display);
 		exit(EXIT_FAILURE);
 	}
 
@@ -151,7 +151,7 @@ int main(int argc, char *argv[]) {
 		.xclient = {
 			.type = ClientMessage,
 			.send_event = True,
-			.display = d,
+			.display = display,
 			.window = root,
 			.message_type = _NET_SHOWING_DESKTOP,
 			.format = 32,
@@ -160,10 +160,10 @@ int main(int argc, char *argv[]) {
 	};
 
 	/* Send the event to the window manager */
-	XSendEvent(d, root, False,
+	XSendEvent(display, root, False,
 				SubstructureRedirectMask | SubstructureNotifyMask, &xev);
 
-	XCloseDisplay(d);
+	XCloseDisplay(display);
 	exit(EXIT_SUCCESS);
 }
 
@@ -177,7 +177,7 @@ void output_help(void) {
 }
 
 void output_try_help(void) {
-		fprintf(stderr, "Try \'%s --help\' for more information.\n", PROGRAM_NAME);
+	fprintf(stderr, "Try \'%s --help\' for more information.\n", PROGRAM_NAME);
 }
 
 void output_version(void) {
