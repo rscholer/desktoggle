@@ -51,7 +51,17 @@ int main(int argc, char *argv[]) {
 	unsigned long nitems;
 	unsigned long after;
 	unsigned char *data = NULL;
-
+	XEvent xev = {
+		.xclient = {
+			.type = ClientMessage,
+			.send_event = True,
+			.display = NULL,
+			.window = 0,
+			.message_type = 0,
+			.format = 32,
+			.data.l[0] = 0
+		}
+	};
 	/* Variables for parsing arguments */
 	int current_option = 0;
 	int option_index = 0;
@@ -146,18 +156,11 @@ int main(int argc, char *argv[]) {
 		data = NULL;
 	}
 
-	/* Initialize Xevent struct */
-	XEvent xev = {
-		.xclient = {
-			.type = ClientMessage,
-			.send_event = True,
-			.display = display,
-			.window = root,
-			.message_type = _NET_SHOWING_DESKTOP,
-			.format = 32,
-			.data.l[0] = !current /* <-- Toggles state */
-		}
-	};
+	/* Populate xev struct with current data */
+	xev.xclient.data.l[0] = !current;
+	xev.xclient.display = display;
+	xev.xclient.message_type = _NET_SHOWING_DESKTOP;
+	xev.xclient.window = root;
 
 	/* Send the event to the window manager */
 	XSendEvent(display, root, False,
