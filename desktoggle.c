@@ -94,10 +94,10 @@ int main(int argc, char *argv[]) {
 	/* List all unknown non-option arguments and exit*/
 	if (optind < argc) {
 		if (argc - optind == 1) {
-			printf("Unknown non-option argument:\n");
+			puts("Unknown non-option argument:");
 		}
 		else {
-			printf("Unknown non-option arguments:\n");
+			puts("Unknown non-option arguments:");
 		}
 		while (optind < argc) {
 			printf("%s\n", argv[optind++]);
@@ -137,8 +137,8 @@ int main(int argc, char *argv[]) {
 	/* Set current state of desktop */
 	if (nitems == 0) {
 		/* current is alredy set to False */
-		fprintf(stderr, "Unexpected result.\n");
-		fprintf(stderr, "Assuming unshown desktop!\n");
+		fputs("Unexpected result.\n", stderr);
+		fputs("Assuming unshown desktop!\n", stderr);
 	}
 	else if (data != NULL) {
 		current = data[0];
@@ -169,9 +169,9 @@ int main(int argc, char *argv[]) {
 
 void output_help(void) {
 	printf("Usage: %s [OPTION]...\n", PROGRAM_NAME);
-	printf("Hide all windows and show the desktop.\n\n");
-	printf("      --help     display this help and exit\n");
-	printf("      --version  output version information and exit\n");
+	puts("Hide all windows and show the desktop.\n");
+	puts("      --help     display this help and exit");
+	puts("      --version  output version information and exit");
 	printf("\nReport %s bugs at <%s>\n", PACKAGE_NAME, PACKAGE_BUGREPORT);
 	printf("%s home page: <%s>\n", PACKAGE_NAME_S, PACKAGE_URL);
 }
