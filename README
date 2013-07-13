@@ -8,6 +8,10 @@ Dependencies
 - glibc <http://www.gnu.org/software/libc/>
 - libX11 <http://xorg.freedesktop.org/>
 
+Dependencie for compilations
+--------------
+- help2man <https://www.gnu.org/software/help2man/>
+
 Bugs / Requests
 --------------
 Please report bugs and/or feature requests at <https://github.com/rscholer/desktoggle/issues/>.
