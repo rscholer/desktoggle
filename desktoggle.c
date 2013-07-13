@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #define PACKAGE_NAME "desktoggle"
 #define PACKAGE_NAME_S "Desktoggle"
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
-#define VERSION "1.2"
+#define VERSION "1.3"
 
 const char *PROGRAM_NAME = NULL;
 
