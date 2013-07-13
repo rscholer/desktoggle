@@ -29,6 +29,7 @@ THE SOFTWARE.*/
 #define AUTHOR "Raphael Scholer"
 #define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
 #define PACKAGE_NAME "desktoggle"
+#define PACKAGE_NAME_S "Desktoggle"
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
 #define VERSION "1.2"
 
@@ -176,7 +177,7 @@ void output_help(void) {
 	printf("      --help     display this help and exit\n");
 	printf("      --version  output version information and exit\n");
 	printf("\nReport %s bugs at <%s>\n", PACKAGE_NAME, PACKAGE_BUGREPORT);
-	printf("%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
+	printf("%s home page: <%s>\n", PACKAGE_NAME_S, PACKAGE_URL);
 }
 
 void output_try_help(void) {
