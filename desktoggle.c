@@ -187,7 +187,6 @@ void output_version(void) {
 	puts("This is free software: you are free to change and redistribute it.");
 	puts("There is NO WARRANTY, to the extent permitted by law.");
 	printf("\nWritten by %s.\n", AUTHOR);
-	printf("\n\n\n");
 }
 
 void set_program_name(const char *name) {
