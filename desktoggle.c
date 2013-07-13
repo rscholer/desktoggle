@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #include <string.h>
 
 #define AUTHOR "Raphael Scholer"
-#define CDATE 2013
+#define CDATE "2013"
 #define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
 #define PACKAGE_NAME "desktoggle"
 #define PACKAGE_NAME_S "Desktoggle"
@@ -182,7 +182,7 @@ void output_try_help(void) {
 
 void output_version(void) {
 	printf("%s %s\n", PACKAGE_NAME, VERSION);
-	printf("Copyright (C) %d %s\n", CDATE, AUTHOR);
+	printf("Copyright (C) %s %s\n", CDATE, AUTHOR);
 	puts("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.");
 	puts("This is free software: you are free to change and redistribute it.");
 	puts("There is NO WARRANTY, to the extent permitted by law.");
