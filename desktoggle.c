@@ -38,19 +38,15 @@ void set_program_name(const char *name);
 
 int main(int argc, char *argv[]) {
 	set_program_name(argv[0]);
+
 	/**************************************************************************
 	 * Declare and Initialize Variables
 	 *************************************************************************/
-	Display *display;
-	Window root;
+	/* Variables for X handling */
 	Atom _NET_SHOWING_DESKTOP;
 	Atom actual_type;
-	int actual_format;
-	int error;
-	int current = False;
-	unsigned long nitems;
-	unsigned long after;
-	unsigned char *data = NULL;
+	Display *display;
+	Window root;
 	XEvent xev = {
 		.xclient = {
 			.type = ClientMessage,
@@ -59,17 +55,24 @@ int main(int argc, char *argv[]) {
 			.window = 0,
 			.message_type = 0,
 			.format = 32,
-			.data.l[0] = 0
+			.data.l[0] = False
 		}
 	};
+	int actual_format;
+	int current_state = False;
+	int error;
+	unsigned char *data = NULL;
+	unsigned long after;
+	unsigned long nitems;
+
 	/* Variables for parsing arguments */
 	int current_option = 0;
 	int option_index = 0;
 
 	const struct option long_options[] = {
-		{"help",	no_argument,	0,		'h'},
-		{"version",	no_argument,	0,		'v'},
-		{0,			0,				0,		0}
+		{"help",    no_argument, 0, 'h'},
+		{"version", no_argument, 0, 'v'},
+		{0,         0,           0, 0}
 	};
 
 	/**************************************************************************
@@ -77,7 +80,7 @@ int main(int argc, char *argv[]) {
 	 *************************************************************************/
 	while (1) {
 		current_option = getopt_long(argc, argv, "", long_options,
-										&option_index);
+		                             &option_index);
 
 		if (current_option == -1) {
 			break;
@@ -129,13 +132,13 @@ int main(int argc, char *argv[]) {
 	/* This is the default root window */
 	root = DefaultRootWindow(display);
 
-	/* find the Atom for _NET_SHOWING_DESKTOP */
+	/* Find the Atom for _NET_SHOWING_DESKTOP */
 	_NET_SHOWING_DESKTOP = XInternAtom(display, "_NET_SHOWING_DESKTOP", False);
 
 	/* Obtain the current state of _NET_SHOWING_DESKTOP  */
-	error = XGetWindowProperty(display, root, _NET_SHOWING_DESKTOP, 0, 1, False,
-								XA_CARDINAL, &actual_type, &actual_format,
-								&nitems, &after, &data);
+	error = XGetWindowProperty(display, root, _NET_SHOWING_DESKTOP, 0, 1,
+	                           False, XA_CARDINAL, &actual_type,
+	                           &actual_format, &nitems, &after, &data);
 
 	/* Check for errors */
 	if (error != Success) {
@@ -151,20 +154,20 @@ int main(int argc, char *argv[]) {
 		fputs("Assuming unshown desktop!\n", stderr);
 	}
 	else if (data != NULL) {
-		current = data[0];
+		current_state = data[0];
 		XFree(data);
 		data = NULL;
 	}
 
 	/* Populate xev struct with current data */
-	xev.xclient.data.l[0] = !current;
+	xev.xclient.data.l[0] = !current_state;
 	xev.xclient.display = display;
 	xev.xclient.message_type = _NET_SHOWING_DESKTOP;
 	xev.xclient.window = root;
 
 	/* Send the event to the window manager */
 	XSendEvent(display, root, False,
-				SubstructureRedirectMask | SubstructureNotifyMask, &xev);
+	           SubstructureRedirectMask | SubstructureNotifyMask, &xev);
 
 	XCloseDisplay(display);
 	exit(EXIT_SUCCESS);
