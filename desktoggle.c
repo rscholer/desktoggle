@@ -1,22 +1,17 @@
 /* Copyright (C) 2013 by Raphael Scholer
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.*/
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
@@ -27,6 +22,7 @@ THE SOFTWARE.*/
 #include <string.h>
 
 #define AUTHOR "Raphael Scholer"
+#define CDATE 2013
 #define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
 #define PACKAGE_NAME "desktoggle"
 #define PACKAGE_NAME_S "Desktoggle"
@@ -186,34 +182,10 @@ void output_try_help(void) {
 
 void output_version(void) {
 	printf("%s %s\n", PACKAGE_NAME, VERSION);
-	printf("Copyright (C) 2013 %s\n", AUTHOR);
-	printf("\nPermission is hereby granted, free of charge, to any person ");
-	printf("obtaining a copy\n");
-	printf("of this software and associated documentation files ");
-	printf("(the \"Software\"), to deal\n");
-	printf("in the Software without restriction, including without ");
-	printf("limitation the rights\n");
-	printf("to use, copy, modify, merge, publish, distribute, sublicense, ");
-	printf("and/or sell\n");
-	printf("copies of the Software, and to permit persons to whom the ");
-	printf("Software is\n");
-	printf("furnished to do so, subject to the following conditions:\n");
-	printf("\nThe above copyright notice and this permission notice shall be ");
-	printf("included in\n");
-	printf("all copies or substantial portions of the Software.\n");
-	printf("\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ");
-	printf("ANY KIND, EXPRESS OR\n");
-	printf("IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES ");
-	printf("OF MERCHANTABILITY,\n");
-	printf("FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. ");
-	printf("IN NO EVENT SHALL THE\n");
-	printf("AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,");
-	printf("DAMAGES OR OTHER\n");
-	printf("LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR ");
-	printf("OTHERWISE, ARISING FROM,\n");
-	printf("OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR ");
-	printf("OTHER DEALINGS IN\n");
-	printf("THE SOFTWARE.\n");
+	printf("Copyright (C) %d %s\n", CDATE, AUTHOR);
+	puts("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.");
+	puts("This is free software: you are free to change and redistribute it.");
+	puts("There is NO WARRANTY, to the extent permitted by law.");
 	printf("\nWritten by %s.\n", AUTHOR);
 }
 
