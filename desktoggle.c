@@ -37,6 +37,7 @@ void output_version(void);
 void set_program_name(const char *name);
 
 int main(int argc, char *argv[]) {
+	/*Set program name*/
 	set_program_name(argv[0]);
 
 	/**************************************************************************
@@ -174,6 +175,7 @@ int main(int argc, char *argv[]) {
 }
 
 void output_help(void) {
+	extern const char *PROGRAM_NAME;
 	printf("Usage: %s [OPTION]...\n", PROGRAM_NAME);
 	puts("Hide all windows and show the desktop.\n");
 	puts("      --help     display this help and exit");
@@ -183,6 +185,7 @@ void output_help(void) {
 }
 
 void output_try_help(void) {
+	extern const char *PROGRAM_NAME;
 	fprintf(stderr, "Try \'%s --help\' for more information.\n", PROGRAM_NAME);
 }
 
@@ -196,5 +199,6 @@ void output_version(void) {
 }
 
 void set_program_name(const char *name) {
+	extern const char *PROGRAM_NAME;
 	PROGRAM_NAME = strdup(name);
 }
