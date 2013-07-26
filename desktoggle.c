@@ -25,7 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #define CDATE "2013"
 #define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
 #define PACKAGE_NAME "desktoggle"
-#define PACKAGE_NAME_S "Desktoggle"
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
 #define VERSION "1.3.1"
 
@@ -181,7 +180,7 @@ void output_help(void) {
 	puts("      --help     display this help and exit");
 	puts("      --version  output version information and exit");
 	printf("\nReport %s bugs at <%s>\n", PACKAGE_NAME, PACKAGE_BUGREPORT);
-	printf("%s home page: <%s>\n", PACKAGE_NAME_S, PACKAGE_URL);
+	printf("%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
 }
 
 void output_try_help(void) {

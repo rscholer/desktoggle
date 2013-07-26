@@ -22,7 +22,7 @@ man1ext = .1
 
 .PHONY: all clean distclean install
 
-all: desktoggle man1
+all: desktoggle
 distclean: clean
 
 desktoggle: $(OBJS)
@@ -31,13 +31,9 @@ desktoggle: $(OBJS)
 %.o: %.c
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-man1: $(PROGS)
-	$(HELP2MAN) --output=$<$(man1ext) ./$<
-
 clean:
 	$(RM) desktoggle
 	$(RM) $(OBJS)
-	$(RM) *$(man1ext)
 
 install:
 	$(INSTALL_PROGRAM) desktoggle $(DESTDIR)$(bindir)/desktoggle
