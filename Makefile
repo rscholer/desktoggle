@@ -31,7 +31,7 @@ desktoggle: $(OBJS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
-	$(RM) desktoggle
+	$(RM) $(PROGS)
 	$(RM) $(OBJS)
 
 install:
@@ -39,3 +39,9 @@ install:
 	$(INSTALL_DATA) COPYING $(DESTDIR)$(docdir)/COPYING
 	$(INSTALL_DATA) README $(DESTDIR)$(docdir)/README
 	$(INSTALL_DATA) desktoggle$(man1ext) $(DESTDIR)$(man1dir)/desktoggle$(man1ext)
+
+uninstall:
+	$(RM) $(DESTDIR)$(bindir)/desktoggle
+	$(RM) $(DESTDIR)$(docdir)/COPYING
+	$(RM) $(DESTDIR)$(docdir)/README
+	$(RM) $(DESTDIR)$(man1dir)/desktoggle$(man1ext)
