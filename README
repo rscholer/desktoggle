@@ -5,7 +5,6 @@ Desktop environments or Window managers.
 
 Dependencies
 ----------
-- glibc <http://www.gnu.org/software/libc/>
 - libX11 <http://xorg.freedesktop.org/>
 
 Bugs / Requests
