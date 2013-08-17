@@ -1,7 +1,6 @@
 CFLAGS ?= -Wall -O2
 LDFLAGS ?= -Wall -O2
 
-HELP2MAN = help2man --no-info
 INSTALL = install -D
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA = $(INSTALL) -m 644
