@@ -36,7 +36,7 @@ void output_version(void);
 void set_program_name(const char *name);
 
 int main(int argc, char *argv[]) {
-	/*Set program name*/
+	/* Set program name */
 	set_program_name(argv[0]);
 
 	/**************************************************************************
@@ -68,7 +68,6 @@ int main(int argc, char *argv[]) {
 	/* Variables for parsing arguments */
 	int current_option = 0;
 	int option_index = 0;
-
 	const struct option long_options[] = {
 		{"help",    no_argument, 0, 'h'},
 		{"version", no_argument, 0, 'v'},
@@ -112,9 +111,11 @@ int main(int argc, char *argv[]) {
 		else {
 			fputs("Unknown non-option arguments:\n", stderr);
 		}
+
 		while (optind < argc) {
 			fprintf(stderr, "  %s\n", argv[optind++]);
 		}
+
 		output_try_help();
 		exit(EXIT_FAILURE);
 	}
@@ -149,7 +150,7 @@ int main(int argc, char *argv[]) {
 
 	/* Set current state of desktop */
 	if (nitems == 0) {
-		/* current is alredy set to False */
+		/* State is alredy set to False */
 		fputs("Unexpected result.\n", stderr);
 		fputs("Assuming unshown desktop!\n", stderr);
 	}
