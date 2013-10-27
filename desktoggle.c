@@ -103,7 +103,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	/* List all unknown non-option arguments and exit*/
+	/* List all unknown non-option arguments and exit */
 	if (optind < argc) {
 		if (argc - optind == 1) {
 			fputs("Unknown non-option argument:\n", stderr);
