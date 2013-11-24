@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
 	unsigned long after;
 	unsigned long nitems;
 
-	/* Variables for parsing arguments */
+	/* Variables for parsing of arguments */
 	int current_option = 0;
 	int option_index = 0;
 	const struct option long_options[] = {
