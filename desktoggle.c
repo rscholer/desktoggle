@@ -36,9 +36,6 @@ void output_version(void);
 void set_program_name(const char *name);
 
 int main(int argc, char *argv[]) {
-	/* Set program name */
-	set_program_name(argv[0]);
-
 	/**************************************************************************
 	 * Declare and Initialize Variables
 	 *************************************************************************/
@@ -73,6 +70,11 @@ int main(int argc, char *argv[]) {
 		{"version", no_argument, 0, 'v'},
 		{0,         0,           0, 0}
 	};
+
+	/**************************************************************************
+	 * Set program name
+	 *************************************************************************/
+	set_program_name(argv[0]);
 
 	/**************************************************************************
 	 * Parse arguments
