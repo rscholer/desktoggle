@@ -181,8 +181,8 @@ void output_help(void) {
 	extern const char *PROGRAM_NAME;
 	printf("Usage: %s [OPTION]...\n", PROGRAM_NAME);
 	puts("Hide all windows and show the desktop.\n");
-	puts("      --help     display this help and exit");
-	puts("      --version  output version information and exit");
+	puts("  --help     display this help and exit");
+	puts("  --version  output version information and exit");
 	printf("\nReport %s bugs at <%s>\n", PACKAGE_NAME, PACKAGE_BUGREPORT);
 	printf("%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
 }
