@@ -177,6 +177,7 @@ int main(int argc, char *argv[]) {
 }
 
 void output_help(void) {
+	/* Print help information. Usally invoked by `argv[0] --help` */
 	extern const char *PROGRAM_NAME;
 	printf("Usage: %s [OPTION]...\n", PROGRAM_NAME);
 	puts("Hide all windows and show the desktop.\n");
@@ -187,11 +188,13 @@ void output_help(void) {
 }
 
 void output_try_help(void) {
+	/* Print a "useful" message when an error occurs while parsing arguments. */
 	extern const char *PROGRAM_NAME;
 	fprintf(stderr, "Try \'%s --help\' for more information.\n", PROGRAM_NAME);
 }
 
 void output_version(void) {
+	/* Print version information. Usally invoked by `argv[0] --version` */
 	printf("%s %s\n", PACKAGE_NAME, VERSION);
 	printf("Copyright (C) %s %s\n", CDATE, AUTHOR);
 	puts("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.");
