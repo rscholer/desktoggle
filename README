@@ -1,7 +1,8 @@
 desktoggle
 ==============
-This script allows you to use a "show desktop" function via keybinding in
-Desktop environments or Window managers.
+This program provides a "show desktop" function.
+It can be used in environments where the Window manager does not provide the
+option to map this function to a key.
 
 Dependencies
 ----------
