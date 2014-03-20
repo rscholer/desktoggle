@@ -177,7 +177,7 @@ int main(int argc, char *argv[]) {
 }
 
 void output_help(void) {
-	/* Print help information. Usally invoked by `argv[0] --help` */
+	/* Print help information. Usually invoked by `argv[0] --help` */
 	extern const char *PROGRAM_NAME;
 	printf("Usage: %s [OPTION]...\n", PROGRAM_NAME);
 	puts("Hide all windows and show the desktop.\n");
@@ -194,7 +194,7 @@ void output_try_help(void) {
 }
 
 void output_version(void) {
-	/* Print version information. Usally invoked by `argv[0] --version` */
+	/* Print version information. Usually invoked by `argv[0] --version` */
 	printf("%s %s\n", PACKAGE_NAME, VERSION);
 	printf("Copyright (C) %s %s\n", CDATE, AUTHOR);
 	puts("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.");
