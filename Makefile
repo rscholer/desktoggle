@@ -25,6 +25,7 @@ man1ext = .1
 
 all: desktoggle
 distclean: clean
+rebuild: clean all
 
 desktoggle: $(OBJS)
 	$(CC) $(LDLIBS) -o $@ $^ $(LDFLAGS)
