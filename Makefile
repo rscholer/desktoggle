@@ -5,7 +5,9 @@ INSTALL = install -pD
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA = $(INSTALL) -m 644
 
-LDLIBS = -lX11
+pkgs = x11
+CFLAGS += $(shell pkg-config --libs $(pkgs))
+LDLIBS += $(shell pkg-config --libs $(pkgs))
 OBJS = desktoggle.o
 PROGS = desktoggle
 
