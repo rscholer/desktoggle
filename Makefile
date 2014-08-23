@@ -1,6 +1,7 @@
-CFLAGS ?= -Wall -O2
+CFLAGS ?= -Wall -Wextra -pedantic -O2
 LDFLAGS ?= $(CFLAGS)
 
+CC := $(CC) -std=c99
 INSTALL = install -pD
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA = $(INSTALL) -m 644
