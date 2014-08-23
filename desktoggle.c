@@ -12,7 +12,6 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
-
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 
@@ -28,12 +27,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
 #define VERSION "1.3.8"
 
-const char *PROGRAM_NAME = NULL;
-
-void output_help(void);
-void output_try_help(void);
-void output_version(void);
-void set_program_name(const char *name);
+void output_help(const char *name);
+void output_try_help(const char *name);
+void output_version();
 
 int main(int argc, char *argv[]) {
 	/**************************************************************************
@@ -72,11 +68,6 @@ int main(int argc, char *argv[]) {
 	};
 
 	/**************************************************************************
-	 * Set program name
-	 *************************************************************************/
-	set_program_name(argv[0]);
-
-	/**************************************************************************
 	 * Parse arguments
 	 *************************************************************************/
 	while (1) {
@@ -88,7 +79,7 @@ int main(int argc, char *argv[]) {
 		}
 		switch (current_option) {
 			case 'h':
-				output_help();
+				output_help(argv[0]);
 				exit(EXIT_SUCCESS);
 				break;
 			case 'v':
@@ -96,7 +87,7 @@ int main(int argc, char *argv[]) {
 				exit(EXIT_SUCCESS);
 				break;
 			case '?':
-				output_try_help();
+				output_try_help(argv[0]);
 				exit(EXIT_FAILURE);
 				break;
 			default:
@@ -118,7 +109,7 @@ int main(int argc, char *argv[]) {
 			fprintf(stderr, "  %s\n", argv[optind++]);
 		}
 
-		output_try_help();
+		output_try_help(argv[0]);
 		exit(EXIT_FAILURE);
 	}
 
@@ -176,10 +167,9 @@ int main(int argc, char *argv[]) {
 	exit(EXIT_SUCCESS);
 }
 
-void output_help(void) {
+void output_help(const char *name) {
 	/* Print help information. Usually invoked by `argv[0] --help` */
-	extern const char *PROGRAM_NAME;
-	printf("Usage: %s [OPTION]...\n", PROGRAM_NAME);
+	printf("Usage: %s [OPTION]...\n", name);
 	puts("Hide all windows and show the desktop.\n");
 	puts("  --help     display this help and exit");
 	puts("  --version  output version information and exit");
@@ -187,10 +177,9 @@ void output_help(void) {
 	printf("%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
 }
 
-void output_try_help(void) {
+void output_try_help(const char *name) {
 	/* Print a "useful" message when an error occurs while parsing arguments. */
-	extern const char *PROGRAM_NAME;
-	fprintf(stderr, "Try \'%s --help\' for more information.\n", PROGRAM_NAME);
+	fprintf(stderr, "Try \'%s --help\' for more information.\n", name);
 }
 
 void output_version(void) {
@@ -201,9 +190,4 @@ void output_version(void) {
 	puts("This is free software: you are free to change and redistribute it.");
 	puts("There is NO WARRANTY, to the extent permitted by law.");
 	printf("\nWritten by %s.\n", AUTHOR);
-}
-
-void set_program_name(const char *name) {
-	extern const char *PROGRAM_NAME;
-	PROGRAM_NAME = strdup(name);
 }
