@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
 #define PACKAGE_NAME "desktoggle"
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
-#define VERSION "1.3.8"
+#define VERSION "1.4"
 
 void output_help(const char *name);
 void output_try_help(const char *name);
