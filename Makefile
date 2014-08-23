@@ -1,5 +1,5 @@
 CFLAGS ?= -Wall -O2
-LDFLAGS ?= -Wall -O2
+LDFLAGS ?= $(CFLAGS)
 
 INSTALL = install -pD
 INSTALL_PROGRAM = $(INSTALL) -m 755
