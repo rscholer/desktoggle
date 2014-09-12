@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 
 static void output_help(const char *name);
 static void output_try_help(const char *name);
-static void output_version();
+static void output_version(void);
 
 
 int main(int argc, char *argv[]) {
