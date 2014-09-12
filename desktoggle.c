@@ -27,9 +27,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
 #define VERSION "1.4"
 
-void output_help(const char *name);
-void output_try_help(const char *name);
-void output_version();
+static void output_help(const char *name);
+static void output_try_help(const char *name);
+static void output_version();
 
 int main(int argc, char *argv[]) {
 	/**************************************************************************
@@ -167,7 +167,7 @@ int main(int argc, char *argv[]) {
 	exit(EXIT_SUCCESS);
 }
 
-void output_help(const char *name) {
+static void output_help(const char *name) {
 	/* Print help information. Usually invoked by `argv[0] --help` */
 	printf("Usage: %s [OPTION]...\n", name);
 	puts("Hide all windows and show the desktop.\n");
@@ -177,12 +177,12 @@ void output_help(const char *name) {
 	printf("%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
 }
 
-void output_try_help(const char *name) {
+static void output_try_help(const char *name) {
 	/* Print a "useful" message when an error occurs while parsing arguments. */
 	fprintf(stderr, "Try \'%s --help\' for more information.\n", name);
 }
 
-void output_version(void) {
+static void output_version(void) {
 	/* Print version information. Usually invoked by `argv[0] --version` */
 	printf("%s %s\n", PACKAGE_NAME, VERSION);
 	printf("Copyright (C) %s %s\n", CDATE, AUTHOR);
