@@ -1,17 +1,20 @@
-CFLAGS ?= -Wall -Wextra -pedantic -O2
-LDFLAGS ?= $(CFLAGS)
+# Files to process
+OBJS = $(patsubst %.c, %.o, $(wildcard *.c))
+PKGS = x11
 
+# Set compiler/linker options
+CFLAGS ?= -Wall -Wextra -pedantic -Wmissing-prototypes -O2 -g
+CFLAGS += $(shell pkg-config --cflags $(PKGS))
+LDFLAGS ?= $(CFLAGS)
+LDLIBS := $(shell pkg-config --libs $(PKGS))
+
+# Set programs
 CC := $(CC) -std=c99
 INSTALL = install -pD
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA = $(INSTALL) -m 644
 
-pkgs = x11
-CFLAGS += $(shell pkg-config --libs $(pkgs))
-LDLIBS += $(shell pkg-config --libs $(pkgs))
-OBJS = desktoggle.o
-PROGS = desktoggle
-
+# Set directories
 prefix = /usr/local
 exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
@@ -22,20 +25,21 @@ man1dir = $(mandir)/man1
 
 man1ext = .1
 
-.PHONY: all clean distclean install
-
-all: desktoggle
-distclean: clean
-rebuild: clean all
-
-desktoggle: $(OBJS)
-	$(CC) $(LDLIBS) -o $@ $^ $(LDFLAGS)
+# Targets
+.PHONY: all clean install rebuild uninstall
 
 %.o: %.c
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	@echo
+
+all: desktoggle
+
+desktoggle: $(OBJS)
+	$(CC) $(LDLIBS) $(LDFLAGS) -o $@ $^
+	@echo
 
 clean:
-	$(RM) $(PROGS)
+	$(RM) desktoggle
 	$(RM) $(OBJS)
 
 install:
@@ -43,6 +47,8 @@ install:
 	$(INSTALL_DATA) COPYING $(DESTDIR)$(docdir)/COPYING
 	$(INSTALL_DATA) README $(DESTDIR)$(docdir)/README
 	$(INSTALL_DATA) desktoggle$(man1ext) $(DESTDIR)$(man1dir)/desktoggle$(man1ext)
+
+rebuild: clean all
 
 uninstall:
 	$(RM) $(DESTDIR)$(bindir)/desktoggle
