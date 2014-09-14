@@ -1,0 +1,46 @@
+DESKTOGGLE(1)
+============
+:doctype: manpage
+:man manual: User Commands
+:man source: SmallTerm
+
+
+NAME
+----
+desktoggle - Lightweight GTK3+ terminal emulator
+
+
+SYNOPSIS
+--------
+*desktoggle* ['OPTION...']
+
+
+DESCRIPTION
+-----------
+Hide all windows and show the desktop.
+When the command is run a second time all windows will be restored.
+
+
+OPTIONS
+-------
+*-h, --help*::
+    Show help options
+
+*-v, --version*::
+    Show program version
+
+
+RESOURCES
+---------
+Website: <https://github.com/rscholer/desktoggle/>
+
+Bug Tracker: <https://www.github.com//rscholer/desktoggle/issues/>
+
+
+COPYRIGHT
+---------
+Copyright (C) 2014 Raphael Scholer
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+

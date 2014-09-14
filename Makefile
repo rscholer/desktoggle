@@ -1,4 +1,5 @@
 # Files to process
+MAN1S = $(patsubst %.1, %.1.asciidoc, $(wildcard *.1.asciidoc))
 OBJS = $(patsubst %.c, %.o, $(wildcard *.c))
 PKGS = x11
 
@@ -29,11 +30,18 @@ man1ext = .1
 # Targets
 .PHONY: all clean install rebuild uninstall
 
+%.1: %.1.asciidoc
+	a2x --doctype manpage --format manpage $<
+	sed -i '/\.\\\".*$$/d' $@
+	@echo
+
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	@echo
 
-all: desktoggle
+all: desktoggle manpages
+
+manpages: $(MAN1S)
 
 desktoggle: $(OBJS)
 	$(CC) $(LDLIBS) $(LDFLAGS) -o $@ $^
