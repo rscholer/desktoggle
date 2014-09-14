@@ -1,5 +1,5 @@
 # Files to process
-MAN1S = $(patsubst %.1, %.1.asciidoc, $(wildcard *.1.asciidoc))
+MAN1S = $(patsubst %.1.asciidoc, %.1, $(wildcard *.1.asciidoc))
 OBJS = $(patsubst %.c, %.o, $(wildcard *.c))
 PKGS = x11
 
@@ -8,27 +8,27 @@ CFLAGS ?= -std=c99 -Werror -Wall -Wextra -Wpedantic -Wmissing-prototypes -Wshado
           -Wstrict-prototypes -Wwrite-strings -Wswitch-default -Wconversion \
           -Wunreachable-code -Wcast-qual -Winit-self -Wuninitialized -O2 -g
 CFLAGS += $(shell pkg-config --cflags $(PKGS))
+
 LDFLAGS ?= $(CFLAGS)
 LDLIBS := $(shell pkg-config --libs $(PKGS))
 
 # Set programs
-INSTALL = install -pD
+INSTALL = install -D
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA = $(INSTALL) -m 644
 
 # Set directories
-prefix = /usr/local
+prefix ?= /usr/local
 exec_prefix = $(prefix)
 bindir = $(exec_prefix)/bin
 datarootdir = $(prefix)/share
-docdir = $(datarootdir)/doc/desktoggle
 mandir = $(datarootdir)/man
 man1dir = $(mandir)/man1
 
 man1ext = .1
 
 # Targets
-.PHONY: all clean install rebuild uninstall
+.PHONY: all clean install manpages rebuild uninstall
 
 %.1: %.1.asciidoc
 	a2x --doctype manpage --format manpage $<
@@ -41,7 +41,6 @@ man1ext = .1
 
 all: desktoggle manpages
 
-manpages: $(MAN1S)
 
 desktoggle: $(OBJS)
 	$(CC) $(LDLIBS) $(LDFLAGS) -o $@ $^
@@ -50,17 +49,20 @@ desktoggle: $(OBJS)
 clean:
 	$(RM) desktoggle
 	$(RM) $(OBJS)
+	$(RM) $(MAN1S)
 
 install:
 	$(INSTALL_PROGRAM) desktoggle $(DESTDIR)$(bindir)/desktoggle
-	$(INSTALL_DATA) COPYING $(DESTDIR)$(docdir)/COPYING
-	$(INSTALL_DATA) README $(DESTDIR)$(docdir)/README
-	$(INSTALL_DATA) desktoggle$(man1ext) $(DESTDIR)$(man1dir)/desktoggle$(man1ext)
+	$(foreach x, $(MAN1S), \
+		$(INSTALL_DATA) $(x) $(DESTDIR)$(man1dir)/$(x) \
+	)
+
+manpages: $(MAN1S)
 
 rebuild: clean all
 
 uninstall:
 	$(RM) $(DESTDIR)$(bindir)/desktoggle
-	$(RM) $(DESTDIR)$(docdir)/COPYING
-	$(RM) $(DESTDIR)$(docdir)/README
-	$(RM) $(DESTDIR)$(man1dir)/desktoggle$(man1ext)
+	$(foreach x, $(MAN1S), \
+		$(RM) $(DESTDIR)$(man1dir)/$(x) \
+	)
