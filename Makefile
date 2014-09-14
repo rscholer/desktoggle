@@ -3,13 +3,14 @@ OBJS = $(patsubst %.c, %.o, $(wildcard *.c))
 PKGS = x11
 
 # Set compiler/linker options
-CFLAGS ?= -Wall -Wextra -pedantic -Wmissing-prototypes -O2 -g
+CFLAGS ?= -std=c99 -Werror -Wall -Wextra -Wpedantic -Wmissing-prototypes -Wshadow \
+          -Wstrict-prototypes -Wwrite-strings -Wswitch-default -Wconversion \
+          -Wunreachable-code -Wcast-qual -Winit-self -Wuninitialized -O2 -g
 CFLAGS += $(shell pkg-config --cflags $(PKGS))
 LDFLAGS ?= $(CFLAGS)
 LDLIBS := $(shell pkg-config --libs $(PKGS))
 
 # Set programs
-CC := $(CC) -std=c99
 INSTALL = install -pD
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA = $(INSTALL) -m 644
