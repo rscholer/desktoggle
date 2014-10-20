@@ -13,7 +13,7 @@ LDFLAGS ?= $(CFLAGS)
 LDLIBS := $(shell pkg-config --libs $(PKGS))
 
 # Set programs
-INSTALL = install -D
+INSTALL = install -pD
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA = $(INSTALL) -m 644
 
