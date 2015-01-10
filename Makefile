@@ -53,9 +53,7 @@ clean:
 
 install:
 	$(INSTALL_PROGRAM) desktoggle $(DESTDIR)$(bindir)/desktoggle
-	$(foreach x, $(MAN1S), \
-		$(INSTALL_DATA) $(x) $(DESTDIR)$(man1dir)/$(x) \
-	)
+	$(INSTALL_DATA) desktoggle$(man1ext) $(DESTDIR)$(man1dir)/desktoggle$(man1ext)
 
 manpages: $(MAN1S)
 
@@ -63,6 +61,4 @@ rebuild: clean all
 
 uninstall:
 	$(RM) $(DESTDIR)$(bindir)/desktoggle
-	$(foreach x, $(MAN1S), \
-		$(RM) $(DESTDIR)$(man1dir)/$(x) \
-	)
+	$(RM) $(DESTDIR)$(man1ext)/desktoggle$(man1ext)
