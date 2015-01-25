@@ -89,28 +89,17 @@ int main(int argc, char *argv[]) {
                 output_version();
                 exit(EXIT_SUCCESS);
                 break;
-            case '?':
+            default:
                 output_try_help(argv[0]);
                 exit(EXIT_FAILURE);
-                break;
-            default:
-                abort();
                 break;
         }
     }
 
     /* List all unknown non-option arguments and exit */
     if (optind < argc) {
-        if (argc - optind == 1) {
-            fputs("Unknown non-option argument:\n", stderr);
-        }
-        else {
-            fputs("Unknown non-option arguments:\n", stderr);
-        }
-
-        while (optind < argc) {
-            fprintf(stderr, "  %s\n", argv[optind++]);
-        }
+        fprintf(stderr, "%s: invalid argument -- '%s'\n",
+                argv[0], argv[optind]);
 
         output_try_help(argv[0]);
         exit(EXIT_FAILURE);
