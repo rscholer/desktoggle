@@ -2,7 +2,7 @@ DESKTOGGLE(1)
 ============
 :doctype: manpage
 :man manual: User Commands
-:man source: SmallTerm
+:man source: desktoggle
 
 
 NAME
