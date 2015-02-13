@@ -13,7 +13,8 @@ LDFLAGS ?= $(CFLAGS)
 LDLIBS := $(shell pkg-config --libs $(PKGS))
 
 # Set programs
-INSTALL = install -pD
+INSTALL = install -p
+INSTALL_DIR = $(INSTALL) -m 755
 INSTALL_PROGRAM = $(INSTALL) -m 755
 INSTALL_DATA = $(INSTALL) -m 644
 
@@ -52,8 +53,10 @@ clean:
 	$(RM) $(MAN1S)
 
 install:
-	$(INSTALL_PROGRAM) desktoggle $(DESTDIR)$(bindir)/desktoggle
-	$(INSTALL_DATA) desktoggle$(man1ext) $(DESTDIR)$(man1dir)/desktoggle$(man1ext)
+	$(INSTALL_DIR) -d $(DESTDIR)$(bindir)
+	$(INSTALL_DIR) -d $(DESTDIR)$(man1dir)
+	$(INSTALL_PROGRAM) -t $(DESTDIR)$(bindir) desktoggle
+	$(INSTALL_DATA) -t $(DESTDIR)$(man1dir) desktoggle$(man1ext)
 
 manpages: $(MAN1S)
 
