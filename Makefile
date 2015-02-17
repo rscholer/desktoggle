@@ -33,7 +33,6 @@ man1ext = .1
 
 %.1: %.1.asciidoc
 	a2x --doctype manpage --format manpage $<
-	sed -i '/\.\\\".*$$/d' $@
 	@echo
 
 %.o: %.c
