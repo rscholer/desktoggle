@@ -1,4 +1,4 @@
-/* Copyright (C) 2015 by Raphael Scholer
+/* Copyright (C) 2011-2016 by Raphael Scholer
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -14,7 +14,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 
 #define AUTHOR "Raphael Scholer"
-#define CDATE "2015"
+#define CDATE "2011-2016"
 #define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
 #define PACKAGE_NAME "desktoggle"
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
