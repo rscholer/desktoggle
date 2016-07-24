@@ -7,7 +7,7 @@ DESKTOGGLE(1)
 
 NAME
 ----
-desktoggle - Lightweight GTK3+ terminal emulator
+desktoggle - Hide all windows and show the desktop.
 
 
 SYNOPSIS
