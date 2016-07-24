@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
 #define PACKAGE_NAME "desktoggle"
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
-#define VERSION "1.5.1"
+#define VERSION "1.5.2"
 
 
 #include <getopt.h>
