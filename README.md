@@ -18,4 +18,4 @@ License
 
 Bug reports / Feature requests
 ------------------------------
-Please report bugs and feature requests in the [bug tracker](/issues/).
+Please report bugs and feature requests at <https://github.com/rscholer/desktoggle/issues/>.
