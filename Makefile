@@ -33,18 +33,15 @@ man1ext = .1
 
 %.1: %.1.asciidoc
 	a2x --doctype manpage --format manpage $<
-	@echo
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
-	@echo
 
 all: desktoggle manpages
 
 
 desktoggle: $(OBJS)
 	$(CC) $(LDLIBS) $(LDFLAGS) -o $@ $^
-	@echo
 
 clean:
 	$(RM) desktoggle
