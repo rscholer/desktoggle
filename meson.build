@@ -1,7 +1,7 @@
 project(
   'desktoggle',
   'c',
-  version: '1.5.4',
+  version: '1.6',
   license: 'GPL3+',
 )
 
