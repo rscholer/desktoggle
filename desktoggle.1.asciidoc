@@ -24,11 +24,11 @@ When the command is run a second time all windows will be restored.
 
 OPTIONS
 -------
-*-h, --help*::
-    Show help options
+*--help*::
+    Show usage information.
 
-*-v, --version*::
-    Show program version
+*--version*::
+    Show version information.
 
 
 RESOURCES
