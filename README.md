@@ -15,7 +15,3 @@ Dependencies
 License
 -------
 [GNU GPL version 3 or later](http://gnu.org/licenses/gpl.html)
-
-Bug reports / Feature requests
-------------------------------
-Please report bugs and feature requests at <https://github.com/rscholer/desktoggle/issues/>.

@@ -15,7 +15,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 
 #define AUTHOR "Raphael Scholer"
 #define CDATE "2011-2017"
-#define PACKAGE_BUGREPORT "https://github.com/rscholer/desktoggle/issues/"
 #define PACKAGE_NAME "desktoggle"
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
 #define VERSION "1.5.4"
@@ -166,8 +165,7 @@ static void output_help(const char *name) {
     puts("Hide all windows and show the desktop.\n");
     puts("  --help     display this help and exit");
     puts("  --version  output version information and exit");
-    printf("\nReport %s bugs at <%s>\n", PACKAGE_NAME, PACKAGE_BUGREPORT);
-    printf("%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
+    printf("\n%s home page: <%s>\n", PACKAGE_NAME, PACKAGE_URL);
 }
 
 
