@@ -1,6 +1,7 @@
 DESKTOGGLE(1)
 ============
 :doctype: manpage
+:author: Raphael Scholer <rascholer@gmail.com>
 :man manual: User Commands
 :man source: desktoggle
 
