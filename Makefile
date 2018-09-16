@@ -29,15 +29,12 @@ man1dir = $(mandir)/man1
 man1ext = .1
 
 # Targets
-.PHONY: all clean install manpages rebuild uninstall
-
-%.1: %.1.asciidoc
-	a2x --doctype manpage --format manpage $<
+.PHONY: all clean install rebuild uninstall
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
-all: desktoggle manpages
+all: desktoggle
 
 
 desktoggle: $(OBJS)
@@ -46,7 +43,6 @@ desktoggle: $(OBJS)
 clean:
 	$(RM) desktoggle
 	$(RM) $(OBJS)
-	$(RM) $(MAN1S)
 
 install:
 	$(INSTALL_DIR) -d $(DESTDIR)$(bindir)
