@@ -22,7 +22,7 @@ manpage = custom_target(
 	command: [
 	  a2x,
 	  '--doctype=manpage', '--format=manpage',
-	  ''.join(['--destination-dir=', '@OUTDIR@']), '@INPUT@'],
+	  ''.join(['--destination-dir=@OUTDIR@']), '@INPUT@'],
 	install: false,
 )
 
