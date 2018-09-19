@@ -6,12 +6,14 @@ option to map this function to a key.
 
 Dependencies
 ------------
-- [libX11][1]
+- [asciidoc][1] (build)
+- [libX11][2]
 
 License
 -------
-[GNU GPL version 3 or later][2]
+[GNU GPL version 3 or later][3]
 
 
-[1]: http://xorg.freedesktop.org/
-[2]: http://gnu.org/licenses/gpl.html
+[1]: http://www.methods.co.nz/asciidoc/
+[2]: http://xorg.freedesktop.org/
+[3]: http://gnu.org/licenses/gpl.html
