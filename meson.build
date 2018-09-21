@@ -5,8 +5,8 @@ project(
   license: 'GPL3+',
 )
 
-a2x = find_program('a2x')
-gzip = find_program('gzip')
+prog_a2x = find_program('a2x')
+prog_gzip = find_program('gzip')
 
 executable(
   'desktoggle',
@@ -20,7 +20,7 @@ manpage = custom_target(
   input: 'desktoggle.1.asciidoc',
   output: 'desktoggle.1',
   command: [
-    a2x,
+    prog_a2x,
     '--doctype=manpage', '--format=manpage',
     ''.join(['--destination-dir=@OUTDIR@']), '@INPUT@',],
   install: false,
@@ -30,7 +30,7 @@ custom_target(
   'compressed desktoggle(1)',
   input: manpage,
   output: 'desktoggle.1.gz',
-  command: [gzip, '-9', '--force', '--keep', '--no-name', '@INPUT@',],
+  command: [prog_gzip, '-9', '--force', '--keep', '--no-name', '@INPUT@',],
   install: true,
   install_dir: join_paths(get_option('mandir'), 'man1',),
 )
