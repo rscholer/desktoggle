@@ -1,19 +1,22 @@
+==========
 desktoggle
 ==========
 This program provides a "show desktop" function.
+
+
 It can be used in environments where the Window manager does not provide the
 option to map this function to a key.
 
 Dependencies
 ------------
-- [docutils][1] (make)
-- [libX11][2]
+- docutils_ (make)
+- libX11_
 
 License
 -------
-[GNU GPL version 3 or later][3]
+`GNU GPL version 3`_ or later
 
 
-[1]: http://docutils.sourceforge.net/
-[2]: http://xorg.freedesktop.org/
-[3]: http://gnu.org/licenses/gpl.html
+.. _docutils: http://docutils.sourceforge.net/
+.. _libX11: http://xorg.freedesktop.org/
+.. _GNU GPL version 3: http://gnu.org/licenses/gpl.html
