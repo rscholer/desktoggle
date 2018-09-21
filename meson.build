@@ -24,7 +24,9 @@ manpage = custom_target(
   command: [
     prog_a2x,
     '--doctype=manpage', '--format=manpage',
-    ''.join(['--destination-dir=@OUTDIR@']), '@INPUT@',],
+    '--destination-dir=@OUTDIR@',
+    '@INPUT@',
+  ],
   install: false,
 )
 
@@ -32,7 +34,11 @@ custom_target(
   'compressed desktoggle(1)',
   input: manpage,
   output: 'desktoggle.1.gz',
-  command: [prog_gzip, '-9', '--force', '--keep', '--no-name', '@INPUT@',],
+  command: [
+    prog_gzip,
+    '-9', '--force', '--keep', '--no-name',
+    '@INPUT@',
+  ],
   install: true,
   install_dir: join_paths(get_option('mandir'), 'man1',),
 )
