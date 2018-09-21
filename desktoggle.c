@@ -13,9 +13,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 
-#define AUTHOR "Raphael Scholer"
-#define PACKAGE_NAME "desktoggle"
-#define VERSION "1.7.1"
+#define PROJECT_AUTHOR "Raphael Scholer"
+#define PROJECT_NAME "desktoggle"
+#define PROJECT_VERSION "1.7.1"
 
 
 #include <getopt.h>
@@ -174,12 +174,12 @@ static void output_try_help(const char *name) {
 
 static void output_version(void) {
     /* Print version information. Usually invoked by `argv[0] --version` */
-    printf("%s %s\n", PACKAGE_NAME, VERSION);
-    printf("Copyright (C) %s %s\n", "2011-2018", AUTHOR);
+    printf("%s %s\n", PROJECT_NAME, PROJECT_VERSION);
+    printf("Copyright (C) %s %s\n", "2011-2018", PROJECT_AUTHOR);
     puts("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.");
     puts("This is free software: you are free to change and redistribute it.");
     puts("There is NO WARRANTY, to the extent permitted by law.");
-    printf("\nWritten by %s.\n", AUTHOR);
+    printf("\nWritten by %s.\n", PROJECT_AUTHOR);
 }
 
 /* vim: set et sts=4 sw=4 ts=4 */
