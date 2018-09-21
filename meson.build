@@ -20,7 +20,7 @@ executable(
 manpage = custom_target(
   'desktoggle(1)',
   input: 'desktoggle.1.asciidoc',
-  output: 'desktoggle.1',
+  output: '@BASENAME@',
   command: [
     prog_a2x,
     '--doctype=manpage', '--format=manpage',
@@ -33,7 +33,7 @@ manpage = custom_target(
 custom_target(
   'compressed desktoggle(1)',
   input: manpage,
-  output: 'desktoggle.1.gz',
+  output: '@PLAINNAME@.gz',
   command: [
     prog_gzip,
     '-9', '--force', '--keep', '--no-name',
