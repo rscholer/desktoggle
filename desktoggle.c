@@ -185,4 +185,4 @@ static void output_version(void) {
     printf("\nWritten by %s.\n", AUTHOR);
 }
 
-/* vim: set ft=c expandtab sw=4 sts=4 ts=4: */
+/* vim: set et sts=4 sw=4 ts=4 */
