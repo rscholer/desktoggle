@@ -16,14 +16,14 @@ executable(
 )
 
 manpage = custom_target(
-	'manpage desktoggle(1)',
-	input: 'desktoggle.1.asciidoc' ,
-	output: 'desktoggle.1',
-	command: [
-	  a2x,
-	  '--doctype=manpage', '--format=manpage',
-	  ''.join(['--destination-dir=@OUTDIR@']), '@INPUT@'],
-	install: false,
+  'manpage desktoggle(1)',
+  input: 'desktoggle.1.asciidoc' ,
+  output: 'desktoggle.1',
+  command: [
+    a2x,
+    '--doctype=manpage', '--format=manpage',
+    ''.join(['--destination-dir=@OUTDIR@']), '@INPUT@'],
+  install: false,
 )
 
 custom_target(
