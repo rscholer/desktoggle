@@ -30,7 +30,7 @@ custom_target(
   'compressed manpage desktoggle(1)',
   input: manpage,
   output: 'desktoggle.1.gz',
-  command: [gzip, '-9', '--keep', '--no-name', '@INPUT@'],
+  command: [gzip, '-9', '--force', '--keep', '--no-name', '@INPUT@'],
   install: true,
   install_dir: join_paths(get_option('mandir'), 'man1')
 )
