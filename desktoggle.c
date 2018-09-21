@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #define CDATE "2011-2018"
 #define PACKAGE_NAME "desktoggle"
 #define PACKAGE_URL "https://github.com/rscholer/desktoggle/"
-#define VERSION "1.6"
+#define VERSION "1.7.1"
 
 
 #include <getopt.h>
