@@ -11,16 +11,16 @@ Hide all windows and show the desktop.
 :Manual section: 1
 
 SYNOPSIS
-========
+--------
 ``desktoggle`` [*OPTION*]...
 
 DESCRIPTION
-===========
+-----------
 | Hide all windows and show the desktop.
 | When the command is run a second time all windows will be restored.
 
 OPTIONS
-=======
+-------
 --help
   Show usage information.
 
