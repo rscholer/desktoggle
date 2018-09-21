@@ -6,7 +6,7 @@ option to map this function to a key.
 
 Dependencies
 ------------
-- [asciidoc][1] (build)
+- [docutils][1] (make)
 - [libX11][2]
 
 License
@@ -14,6 +14,6 @@ License
 [GNU GPL version 3 or later][3]
 
 
-[1]: http://www.methods.co.nz/asciidoc/
+[1]: http://docutils.sourceforge.net/
 [2]: http://xorg.freedesktop.org/
 [3]: http://gnu.org/licenses/gpl.html

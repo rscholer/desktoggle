@@ -7,8 +7,8 @@ project(
 
 deps_desktoggle = dependency('x11')
 
-prog_a2x = find_program('a2x')
 prog_gzip = find_program('gzip')
+prog_rst2man = find_program('rst2man', 'rst2man.py')
 
 executable(
   'desktoggle',
@@ -19,13 +19,12 @@ executable(
 
 manpage = custom_target(
   'desktoggle(1)',
-  input: 'desktoggle.1.asciidoc',
+  input: 'desktoggle.1.rst',
   output: '@BASENAME@',
   command: [
-    prog_a2x,
-    '--doctype=manpage', '--format=manpage',
-    '--destination-dir=@OUTDIR@',
+    prog_rst2man,
     '@INPUT@',
+    '@OUTPUT@',
   ],
   install: false,
 )
