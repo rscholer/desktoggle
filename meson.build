@@ -5,13 +5,15 @@ project(
   license: 'GPL3+',
 )
 
+deps_desktoggle = dependency('x11')
+
 prog_a2x = find_program('a2x')
 prog_gzip = find_program('gzip')
 
 executable(
   'desktoggle',
   'desktoggle.c',
-  dependencies: dependency('x11'),
+  dependencies: deps_desktoggle,
   install: true,
 )
 
