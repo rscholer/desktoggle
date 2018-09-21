@@ -33,9 +33,10 @@ custom_target(
   'compressed desktoggle(1)',
   input: manpage,
   output: '@PLAINNAME@.gz',
+  capture: true,
   command: [
     prog_gzip,
-    '-9', '--force', '--keep', '--no-name',
+    '-9', '--force', '--keep', '--no-name', '--stdout',
     '@INPUT@',
   ],
   install: true,
