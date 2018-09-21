@@ -16,7 +16,7 @@ executable(
 )
 
 manpage = custom_target(
-  'manpage desktoggle(1)',
+  'desktoggle(1)',
   input: 'desktoggle.1.asciidoc' ,
   output: 'desktoggle.1',
   command: [
@@ -27,7 +27,7 @@ manpage = custom_target(
 )
 
 custom_target(
-  'compressed manpage desktoggle(1)',
+  'compressed desktoggle(1)',
   input: manpage,
   output: 'desktoggle.1.gz',
   command: [gzip, '-9', '--force', '--keep', '--no-name', '@INPUT@'],
