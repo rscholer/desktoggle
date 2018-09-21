@@ -5,6 +5,10 @@ project(
   license: 'GPL3+',
 )
 
+conf_project = configuration_data()
+conf_project.set('PROJECT_AUTHOR', 'Raphael Scholer')
+conf_project.set('PROJECT_AUTHOR_EMAIL', 'rascholer@gmail.com')
+
 deps_desktoggle = dependency('x11')
 
 prog_gzip = find_program('gzip')
@@ -17,9 +21,15 @@ executable(
   install: true,
 )
 
-manpage = custom_target(
+manpage_template = configure_file(
+  input: 'desktoggle.1.rst.in',
+  output: '@BASENAME@',
+  configuration: conf_project,
+)
+
+manpage_raw = custom_target(
   'desktoggle(1)',
-  input: 'desktoggle.1.rst',
+  input: manpage_template,
   output: '@BASENAME@',
   command: [
     prog_rst2man,
@@ -31,7 +41,7 @@ manpage = custom_target(
 
 custom_target(
   'compressed desktoggle(1)',
-  input: manpage,
+  input: manpage_raw,
   output: '@PLAINNAME@.gz',
   capture: true,
   command: [
