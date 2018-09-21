@@ -179,7 +179,6 @@ static void output_version(void) {
     puts("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.");
     puts("This is free software: you are free to change and redistribute it.");
     puts("There is NO WARRANTY, to the extent permitted by law.");
-    printf("\nWritten by %s.\n", PROJECT_AUTHOR);
 }
 
 /* vim: set et sts=4 sw=4 ts=4 */
