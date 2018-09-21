@@ -8,11 +8,33 @@ project(
 conf_project = configuration_data()
 conf_project.set('PROJECT_AUTHOR', 'Raphael Scholer')
 conf_project.set('PROJECT_AUTHOR_EMAIL', 'rascholer@gmail.com')
+conf_project.set('PROJECT_NAME', meson.project_name())
+conf_project.set('PROJECT_VERSION', meson.project_version())
+
+conf_desktoggle = configuration_data()
+conf_desktoggle.set_quoted(
+  'PROJECT_AUTHOR',
+  conf_project.get_unquoted('PROJECT_AUTHOR')
+)
+conf_desktoggle.set_quoted(
+  'PROJECT_NAME',
+  conf_project.get_unquoted('PROJECT_NAME')
+)
+conf_desktoggle.set_quoted(
+  'PROJECT_VERSION',
+  conf_project.get_unquoted('PROJECT_VERSION')
+)
 
 deps_desktoggle = dependency('x11')
 
 prog_gzip = find_program('gzip')
 prog_rst2man = find_program('rst2man', 'rst2man.py')
+
+configure_file(
+  input: 'desktoggle.h.in',
+  output: '@BASENAME@',
+  configuration: conf_desktoggle,
+)
 
 executable(
   'desktoggle',

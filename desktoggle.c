@@ -13,17 +13,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 
-#define PROJECT_AUTHOR "Raphael Scholer"
-#define PROJECT_NAME "desktoggle"
-#define PROJECT_VERSION "1.7.1"
-
-
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
+
+#include "desktoggle.h"
 
 
 static void output_help(const char *name);
