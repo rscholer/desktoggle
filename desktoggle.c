@@ -158,8 +158,9 @@ int main(int argc, char *argv[]) {
 
 static void output_help(const char *name) {
     /* Print help information. Usually invoked by `argv[0] --help` */
-    printf("Usage: %s [OPTION]...\n", name);
+    printf("usage: %s [OPTION]...\n\n", name);
     puts("Hide all windows and show the desktop.\n");
+	puts("optional arguments:");
     puts("  --help     display this help and exit");
     puts("  --version  output version information and exit");
 }
