@@ -6,7 +6,7 @@ desktoggle
 Hide all windows and show the desktop.
 --------------------------------------
 
-:Author: @PROJECT_AUTHOR@ <@PROJECT_AUTHOR_EMAIL@>
+:Author: Raphael Scholer <rascholer@gmail.com>
 :Manual group: User Commands
 :Manual section: 1
 
