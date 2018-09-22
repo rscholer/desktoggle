@@ -8,7 +8,7 @@ project(
 conf_desktoggle = configuration_data()
 conf_desktoggle.set_quoted('PROJECT_VERSION', meson.project_version())
 
-deps_desktoggle = dependency('x11')
+dep_x11 = dependency('x11')
 
 prog_gzip = find_program('gzip')
 prog_rst2man = find_program('rst2man', 'rst2man.py')
@@ -22,7 +22,7 @@ configure_file(
 executable(
   'desktoggle',
   'desktoggle.c',
-  dependencies: deps_desktoggle,
+  dependencies: dep_x11,
   install: true,
 )
 
