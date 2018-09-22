@@ -31,9 +31,6 @@ static void output_version(void);
 
 
 int main(int argc, char *argv[]) {
-    /**************************************************************************
-     * Declare and Initialize Variables
-     *************************************************************************/
     /* Variables for X handling */
     Atom _NET_SHOWING_DESKTOP;
     Atom actual_type;
@@ -66,9 +63,7 @@ int main(int argc, char *argv[]) {
         {0,         0,           0, 0}
     };
 
-    /**************************************************************************
-     * Parse arguments
-     *************************************************************************/
+	/* Parse arguments */
     while (1) {
         current_option = getopt_long(argc, argv, "", long_options,
                                      &option_index);
@@ -100,10 +95,6 @@ int main(int argc, char *argv[]) {
         output_try_help(argv[0]);
         exit(EXIT_FAILURE);
     }
-
-    /**************************************************************************
-     *  Main program
-     *************************************************************************/
 
     /* Open the default display */
     if (!(display = XOpenDisplay(NULL))) {
@@ -157,7 +148,6 @@ int main(int argc, char *argv[]) {
 
 
 static void output_help(const char *name) {
-    /* Print help information. Usually invoked by `argv[0] --help` */
     printf("usage: %s [OPTION]...\n\n", name);
     puts("Hide all windows and show the desktop.\n");
 	puts("optional arguments:");
@@ -167,13 +157,11 @@ static void output_help(const char *name) {
 
 
 static void output_try_help(const char *name) {
-    /* Print a "useful" message when an error occurs while parsing arguments. */
     fprintf(stderr, "Try \'%s --help\' for more information.\n", name);
 }
 
 
 static void output_version(void) {
-    /* Print version information. Usually invoked by `argv[0] --version` */
     printf("%s %s\n", PROJECT_NAME, PROJECT_VERSION);
     printf("Copyright (C) %s %s\n", "2011-2018", PROJECT_AUTHOR);
     puts("License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.");
