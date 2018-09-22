@@ -8,10 +8,14 @@ project(
 conf_desktoggle = configuration_data()
 conf_desktoggle.set_quoted('PROJECT_VERSION', meson.project_version())
 
-dep_x11 = dependency('x11')
+deps = {
+  'x11': dependency('x11'),
+}
 
-prog_gzip = find_program('gzip')
-prog_rst2man = find_program('rst2man', 'rst2man.py')
+progs = {
+  'gzip': find_program('gzip'),
+  'rst2man': find_program('rst2man', 'rst2man.py'),
+}
 
 configure_file(
   input: 'desktoggle.h.in',
@@ -22,7 +26,7 @@ configure_file(
 executable(
   'desktoggle',
   'desktoggle.c',
-  dependencies: dep_x11,
+  dependencies: deps['x11'],
   install: true,
 )
 
@@ -31,7 +35,7 @@ manpage_raw = custom_target(
   input: 'desktoggle.1.rst',
   output: '@BASENAME@',
   command: [
-    prog_rst2man,
+    progs['rst2man'],
     '@INPUT@',
     '@OUTPUT@',
   ],
@@ -44,7 +48,7 @@ custom_target(
   output: '@PLAINNAME@.gz',
   capture: true,
   command: [
-    prog_gzip,
+    progs['gzip'],
     '-9', '--force', '--keep', '--no-name', '--stdout',
     '@INPUT@',
   ],
