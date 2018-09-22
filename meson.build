@@ -37,7 +37,7 @@ manpage_raw = custom_target(
   command: [
     progs['rst2man'],
     '@INPUT@',
-    '@OUTPUT@',
+    '@OUTPUT@'
   ],
   install: false,
 )
@@ -50,10 +50,10 @@ custom_target(
   command: [
     progs['gzip'],
     '-9', '--force', '--keep', '--no-name', '--stdout',
-    '@INPUT@',
+    '@INPUT@'
   ],
   install: true,
-  install_dir: join_paths(get_option('mandir'), 'man1',),
+  install_dir: join_paths(get_option('mandir'), 'man1'),
 )
 
 # vim: set et sts=2 sw=2 ts:2:
