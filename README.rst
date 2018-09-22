@@ -10,6 +10,7 @@ option to map this function to a key.
 Dependencies
 ------------
 - docutils_ (make)
+- gzip_ (make)
 - libX11_
 
 License
@@ -17,6 +18,7 @@ License
 `GNU GPL version 3`_ or later
 
 
-.. _docutils: http://docutils.sourceforge.net/
-.. _libX11: http://xorg.freedesktop.org/
 .. _GNU GPL version 3: http://gnu.org/licenses/gpl.html
+.. _docutils: http://docutils.sourceforge.net/
+.. _gzip: https://www.gnu.org/software/gzip/
+.. _libX11: http://xorg.freedesktop.org/
