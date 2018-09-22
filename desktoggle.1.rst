@@ -2,9 +2,9 @@
 desktoggle
 ==========
 
---------------------------------------
-Hide all windows and show the desktop.
---------------------------------------
+-------------------------------------
+hide all windows and show the desktop
+-------------------------------------
 
 :Author: Raphael Scholer <rascholer@gmail.com>
 :Manual group: User Commands
@@ -16,8 +16,7 @@ SYNOPSIS
 
 DESCRIPTION
 -----------
-| Hide all windows and show the desktop.
-| When the command is run a second time all windows will be restored.
+Toggle between hiding and showing of all windows.
 
 OPTIONS
 -------
