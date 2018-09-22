@@ -1,7 +1,7 @@
 ==========
 desktoggle
 ==========
-This program provides a "show desktop" function.
+This program provides a "show desktop" functionality.
 
 
 It can be used in environments where the Window manager does not provide the
