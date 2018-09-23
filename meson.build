@@ -56,4 +56,4 @@ custom_target(
   install_dir: join_paths(get_option('mandir'), 'man1'),
 )
 
-# vim: set et sts=2 sw=2 ts:2:
+# vim: set et sts=2 sw=2 ts=2:

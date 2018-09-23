@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
         {0,         0,           0, 0}
     };
 
-	/* Parse arguments */
+    /* Parse arguments */
     while (1) {
         current_option = getopt_long(argc, argv, "", long_options,
                                      &option_index);
@@ -150,7 +150,7 @@ int main(int argc, char *argv[]) {
 static void output_help(const char *name) {
     printf("usage: %s [OPTION]...\n\n", name);
     puts("Hide all windows and show the desktop.\n");
-	puts("optional arguments:");
+    puts("optional arguments:");
     puts("  --help     display this help and exit");
     puts("  --version  output version information and exit");
 }
@@ -169,4 +169,4 @@ static void output_version(void) {
     puts("There is NO WARRANTY, to the extent permitted by law.");
 }
 
-/* vim: set et sts=4 sw=4 ts=4 */
+/* vim: set et sts=4 sw=4 ts=4 : */
