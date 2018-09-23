@@ -1,4 +1,4 @@
-/* Copyright (C) 2011-2018 by Raphael Scholer
+/* Copyright (c) 2011-2018 by Raphael Scholer
 
 This file is part of desktoggle.
 
