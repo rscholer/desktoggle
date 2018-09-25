@@ -63,26 +63,20 @@ int main(int argc, char *argv[]) {
     };
 
     /* Parse arguments */
-    while (1) {
+    while (current_option != -1) {
         current_option = getopt_long(argc, argv, "", long_options,
                                      &option_index);
 
-        if (current_option == -1) {
-            break;
-        }
         switch (current_option) {
             case 'h':
                 output_help(argv[0]);
                 exit(EXIT_SUCCESS);
-                break;
             case 'v':
                 output_version();
                 exit(EXIT_SUCCESS);
-                break;
-            default:
+            case '?':
                 output_try_help(argv[0]);
                 exit(EXIT_FAILURE);
-                break;
         }
     }
 
