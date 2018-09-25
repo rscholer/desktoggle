@@ -48,7 +48,6 @@ int main(int argc, char *argv[]) {
         }
     };
     int actual_format;
-    int current_state = False;
     int error;
     unsigned char *data = NULL;
     unsigned long after;
@@ -124,9 +123,7 @@ int main(int argc, char *argv[]) {
             fputs("Assuming unshown desktop!\n", stderr);
         }
         else if (data != NULL) {
-            current_state = data[0];
-
-            xev.xclient.data.l[0] = !current_state;
+            xev.xclient.data.l[0] = !data[0];
             xev.xclient.display = display;
             xev.xclient.message_type = _NET_SHOWING_DESKTOP;
             xev.xclient.window = root;
