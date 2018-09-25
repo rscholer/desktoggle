@@ -113,37 +113,35 @@ int main(int argc, char *argv[]) {
                                False, XA_CARDINAL, &actual_type,
                                &actual_format, &nitems, &after, &data);
 
-    /* Check for errors */
     if (error != Success) {
         fprintf(stderr, "Received error %d!\n", error);
-        XCloseDisplay(display);
-        exit(EXIT_FAILURE);
     }
+    else {
+        /* Set current state of desktop */
+        if (nitems == 0) {
+            /* State is alredy set to False */
+            fputs("Unexpected result.\n", stderr);
+            fputs("Assuming unshown desktop!\n", stderr);
+        }
+        else if (data != NULL) {
+            current_state = data[0];
 
-    /* Set current state of desktop */
-    if (nitems == 0) {
-        /* State is alredy set to False */
-        fputs("Unexpected result.\n", stderr);
-        fputs("Assuming unshown desktop!\n", stderr);
+            xev.xclient.data.l[0] = !current_state;
+            xev.xclient.display = display;
+            xev.xclient.message_type = _NET_SHOWING_DESKTOP;
+            xev.xclient.window = root;
+
+            /* Send the event to the window manager */
+            XSendEvent(display, root, False,
+                       SubstructureRedirectMask | SubstructureNotifyMask, &xev);
+
+            XFree(data);
+            data = NULL;
+        }
     }
-    else if (data != NULL) {
-        current_state = data[0];
-        XFree(data);
-        data = NULL;
-    }
-
-    /* Populate xev struct with current data */
-    xev.xclient.data.l[0] = !current_state;
-    xev.xclient.display = display;
-    xev.xclient.message_type = _NET_SHOWING_DESKTOP;
-    xev.xclient.window = root;
-
-    /* Send the event to the window manager */
-    XSendEvent(display, root, False,
-               SubstructureRedirectMask | SubstructureNotifyMask, &xev);
 
     XCloseDisplay(display);
-    exit(EXIT_SUCCESS);
+    exit((!error) ? EXIT_SUCCESS : EXIT_FAILURE);
 }
 
 
