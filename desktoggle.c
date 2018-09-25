@@ -82,7 +82,7 @@ int main(int argc, char *argv[]) {
 
     /* List all unknown non-option arguments and exit */
     if (optind < argc) {
-        fprintf(stderr, "%s: invalid argument -- '%s'\n",
+        fprintf(stderr, "%s: unrecognized argument '%s'\n",
                 argv[0], argv[optind]);
 
         output_try_help(argv[0]);
@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
 
     /* Open the default display */
     if (!(display = XOpenDisplay(NULL))) {
-        fprintf(stderr, "Cannot open display \"%s\".\n", XDisplayName(NULL));
+        fprintf(stderr, "%s: Cannot open display \"%s\".\n", argv[0], XDisplayName(NULL));
         exit(EXIT_FAILURE);
     }
 
@@ -107,7 +107,7 @@ int main(int argc, char *argv[]) {
                                &actual_format, &nitems, &after, &data);
 
     if (error != Success) {
-        fprintf(stderr, "Received error %d!\n", error);
+        fprintf(stderr, "%s: Received error %d!\n", argv[0], error);
     }
     else {
         /* Set current state of desktop */
