@@ -22,8 +22,6 @@ along with desktoggle.  If not, see <https://www.gnu.org/licenses/>. */
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "desktoggle.h"
-
 
 static void output_help(const char *name);
 static void output_try_help(const char *name);

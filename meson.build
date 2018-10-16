@@ -5,8 +5,10 @@ project(
   license: 'GPL3+',
 )
 
-conf_desktoggle = configuration_data()
-conf_desktoggle.set_quoted('PROJECT_VERSION', meson.project_version())
+add_project_arguments(
+  '-DPROJECT_VERSION="@0@"'.format(meson.project_version()),
+  language: 'c',
+)
 
 deps = {
   'x11': dependency('x11'),
@@ -16,12 +18,6 @@ progs = {
   'gzip': find_program('gzip'),
   'rst2man': find_program('rst2man', 'rst2man.py'),
 }
-
-configure_file(
-  input: 'desktoggle.h.in',
-  output: '@BASENAME@',
-  configuration: conf_desktoggle,
-)
 
 executable(
   'desktoggle',
