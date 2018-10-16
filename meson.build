@@ -4,6 +4,7 @@ project(
   version: '1.8',
   license: 'GPL3+',
   meson_version: '>=0.47.0',
+  default_options: ['c_std=c99'],
 )
 
 add_project_arguments(
