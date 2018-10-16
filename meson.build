@@ -3,6 +3,7 @@ project(
   'c',
   version: '1.8',
   license: 'GPL3+',
+  meson_version: '>=0.47.0',
 )
 
 add_project_arguments(
