@@ -14,11 +14,6 @@ deps = {
   'x11': dependency('x11'),
 }
 
-progs = {
-  'gzip': find_program('gzip'),
-  'rst2man': find_program('rst2man', 'rst2man.py'),
-}
-
 executable(
   'desktoggle',
   'desktoggle.c',
@@ -26,27 +21,13 @@ executable(
   install: true,
 )
 
-manpage_raw = custom_target(
-  'desktoggle(1)',
-  input: 'desktoggle.1.rst',
-  output: '@BASENAME@',
-  command: [
-    progs['rst2man'],
-    '@INPUT@',
-    '@OUTPUT@'
-  ],
-  install: false,
-)
-
 custom_target(
-  'compressed desktoggle(1)',
-  input: manpage_raw,
-  output: '@PLAINNAME@.gz',
-  capture: true,
+  'desktoggle.1',
+  input: 'desktoggle.1.rst',
+  output: 'desktoggle.1',
   command: [
-    progs['gzip'],
-    '-9', '--force', '--keep', '--no-name', '--stdout',
-    '@INPUT@'
+    find_program('rst2man', 'rst2man.py'),
+    '@INPUT@', '@OUTPUT@'
   ],
   install: true,
   install_dir: join_paths(get_option('mandir'), 'man1'),
