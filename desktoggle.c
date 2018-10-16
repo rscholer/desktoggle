@@ -15,6 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with desktoggle.  If not, see <https://www.gnu.org/licenses/>. */
 
+#include <X11/X.h>
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 #include <getopt.h>
