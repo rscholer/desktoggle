@@ -55,7 +55,6 @@ int main(int argc, char *argv[]) {
 
     /* Variables for parsing of arguments */
     int current_option = 0;
-    int option_index = 0;
     const struct option long_options[] = {
         {"help",    no_argument, 0, 'h'},
         {"version", no_argument, 0, 'v'},
@@ -65,7 +64,7 @@ int main(int argc, char *argv[]) {
     /* Parse arguments */
     while (current_option != -1) {
         current_option = getopt_long(argc, argv, "", long_options,
-                                     &option_index);
+                                     &optind);
 
         switch (current_option) {
             case 'h':
