@@ -20,7 +20,6 @@ along with desktoggle.  If not, see <https://www.gnu.org/licenses/>. */
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #include "desktoggle.h"
 
