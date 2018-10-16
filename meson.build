@@ -10,14 +10,10 @@ add_project_arguments(
   language: 'c',
 )
 
-deps = {
-  'x11': dependency('x11'),
-}
-
 executable(
   'desktoggle',
   'desktoggle.c',
-  dependencies: deps['x11'],
+  dependencies: dependency('x11'),
   install: true,
 )
 
